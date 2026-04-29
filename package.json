@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev",
     "dev:api": "node --loader ts-node/esm src/api-server/server.ts",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "start:api": "node --loader ts-node/esm src/api-server/server.ts",
     "lint": "next lint",
