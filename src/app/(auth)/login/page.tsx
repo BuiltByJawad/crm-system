@@ -50,9 +50,9 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-zinc-50 dark:bg-zinc-950">
+    <main className="min-h-screen bg-background">
       <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 md:grid-cols-2">
-        <section className="hidden md:flex flex-col justify-between p-10 lg:p-14">
+        <section className="hidden md:flex flex-col justify-between p-10 lg:p-14 bg-zinc-50 dark:bg-zinc-950 border-r border-zinc-200/60 dark:border-zinc-800/60">
           <Link href="/" className="inline-flex items-center gap-3">
             <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
               <Briefcase className="h-6 w-6 text-primary-foreground" />
@@ -69,14 +69,14 @@ export default function LoginPage() {
             </p>
 
             <div className="grid gap-4">
-              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/60 dark:bg-zinc-900/40 p-4">
+              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-background p-4">
                 <Zap className="h-5 w-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                 <div className="space-y-1">
                   <p className="font-semibold">Fast workflows</p>
                   <p className="text-sm text-muted-foreground">Create contacts and opportunities in seconds.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-white/60 dark:bg-zinc-900/40 p-4">
+              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-background p-4">
                 <ShieldCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400 mt-0.5" />
                 <div className="space-y-1">
                   <p className="font-semibold">Secure by design</p>

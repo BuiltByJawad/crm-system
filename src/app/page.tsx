@@ -28,7 +28,8 @@ export default function HomePage() {
       <main className="flex-1 flex flex-col">
         {/* Hero Section */}
         <section className="w-full pt-12 md:pt-24 lg:pt-32 pb-12 md:pb-24 bg-gradient-to-b from-background to-zinc-50 dark:to-zinc-950 relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-zinc-200/50 dark:bg-grid-zinc-800/20 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] -z-10" />
+          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-primary/15 blur-3xl -z-10" />
+          <div className="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl -z-10" />
           <div className="container px-4 md:px-6 mx-auto">
             <div className="flex flex-col items-center space-y-8 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
               <Link 
@@ -113,7 +114,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="w-full py-24 md:py-32 bg-zinc-50 dark:bg-zinc-950">
+        <section className="w-full py-24 md:py-32 bg-background">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="text-center mb-14 space-y-4">
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Loved by teams that sell</h2>
