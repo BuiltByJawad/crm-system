@@ -70,174 +70,192 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background">
-      <div className="mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 md:grid-cols-2">
-        <section className="hidden md:flex flex-col justify-between p-10 lg:p-14 bg-zinc-50 dark:bg-zinc-950 border-r border-zinc-200/60 dark:border-zinc-800/60">
-          <Link href="/" className="inline-flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-              <Briefcase className="h-6 w-6 text-primary-foreground" />
-            </div>
-            <span className="text-xl font-bold tracking-tight">Nexus CRM</span>
-          </Link>
-
-          <div className="space-y-6">
-            <h1 className="text-4xl font-black tracking-tight leading-[1.05]">
-              Start closing deals faster.
-            </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Create your workspace and start tracking contacts and opportunities in minutes.
-            </p>
-
-            <div className="grid gap-4">
-              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-background p-4">
-                <BarChart3 className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="font-semibold">Pipeline visibility</p>
-                  <p className="text-sm text-muted-foreground">Keep every deal stage visible and actionable.</p>
-                </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="mx-auto max-w-md">
+          {/* Mobile Header */}
+          <div className="text-center mb-8 md:hidden">
+            <Link href="/" className="inline-flex items-center gap-3">
+              <div className="h-10 w-10 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg shadow-blue-600/20">
+                <Briefcase className="h-6 w-6 text-white" />
               </div>
-              <div className="flex items-start gap-3 rounded-2xl border border-zinc-200/70 dark:border-zinc-800/70 bg-background p-4">
-                <ShieldCheck className="h-5 w-5 text-emerald-600 dark:text-emerald-400 mt-0.5" />
-                <div className="space-y-1">
-                  <p className="font-semibold">Audit-ready security</p>
-                  <p className="text-sm text-muted-foreground">Secure defaults and role-based access.</p>
-                </div>
-              </div>
-            </div>
+              <span className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white">Nexus CRM</span>
+            </Link>
           </div>
 
-          <p className="text-xs text-muted-foreground">© 2024 Nexus CRM</p>
-        </section>
-
-        <section className="flex items-center justify-center p-4 md:p-10 lg:p-14">
-          <div className="w-full max-w-md">
-            <div className="md:hidden mb-8">
-              <Link href="/" className="inline-flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                  <Briefcase className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <span className="text-xl font-bold tracking-tight">Nexus CRM</span>
-              </Link>
+          {/* Auth Card */}
+          <div className="bg-white dark:bg-zinc-900 rounded-2xl shadow-xl border border-zinc-200 dark:border-zinc-800 p-6 md:p-8">
+            {/* Header */}
+            <div className="text-center mb-8">
+              <h1 className="text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white mb-2">
+                Create your account
+              </h1>
+              <p className="text-zinc-600 dark:text-zinc-400">
+                Start your free trial and boost your sales productivity
+              </p>
             </div>
 
-            <div className="glass rounded-3xl p-6 md:p-10">
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Create account</h2>
-                <p className="text-sm md:text-base text-muted-foreground">Use your work email to get started.</p>
-              </div>
-
-              <form className="mt-8 space-y-5" onSubmit={handleSubmit}>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="firstName" required>First Name</Label>
-                      <Input
-                        id="firstName"
-                        name="firstName"
-                        placeholder="John"
-                        autoComplete="given-name"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        error={errors.firstName}
-                        disabled={loading}
-                        className="h-11"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="lastName" required>Last Name</Label>
-                      <Input
-                        id="lastName"
-                        name="lastName"
-                        placeholder="Doe"
-                        autoComplete="family-name"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        error={errors.lastName}
-                        disabled={loading}
-                        className="h-11"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" required>Email address</Label>
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="firstName" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                      First name
+                    </Label>
                     <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="name@company.com"
-                      autoComplete="email"
-                      inputMode="email"
-                      value={formData.email}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-                      error={errors.email}
+                      id="firstName"
+                      name="firstName"
+                      placeholder="John"
+                      autoComplete="given-name"
+                      value={formData.firstName}
+                      onChange={handleChange}
                       disabled={loading}
-                      className="h-11"
+                      className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
+                      required
                     />
+                    {errors.firstName && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.firstName}</p>
+                    )}
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="password" required>Password</Label>
+                  <div>
+                    <Label htmlFor="lastName" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                      Last name
+                    </Label>
                     <Input
-                      id="password"
-                      name="password"
-                      type="password"
-                      placeholder="••••••••"
-                      autoComplete="new-password"
-                      value={formData.password}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-                      error={errors.password}
+                      id="lastName"
+                      name="lastName"
+                      placeholder="Doe"
+                      autoComplete="family-name"
+                      value={formData.lastName}
+                      onChange={handleChange}
                       disabled={loading}
-                      className="h-11"
+                      className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
+                      required
                     />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="confirmPassword" required>Confirm Password</Label>
-                    <Input
-                      id="confirmPassword"
-                      name="confirmPassword"
-                      type="password"
-                      placeholder="••••••••"
-                      autoComplete="new-password"
-                      value={formData.confirmPassword}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleChange(e)}
-                      error={errors.confirmPassword}
-                      disabled={loading}
-                      className="h-11"
-                    />
+                    {errors.lastName && (
+                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.lastName}</p>
+                    )}
                   </div>
                 </div>
 
-                {errors.form && (
-                  <div className="p-3 rounded-xl bg-destructive/10 text-destructive text-sm font-medium animate-in shake">
-                    {errors.form}
-                  </div>
-                )}
-
-                <Button type="submit" className="w-full h-12 text-base font-semibold rounded-2xl" disabled={loading}>
-                  {loading ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                      Creating account...
-                    </span>
-                  ) : (
-                    'Create account'
+                <div>
+                  <Label htmlFor="email" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    Work email
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="name@company.com"
+                    autoComplete="email"
+                    inputMode="email"
+                    value={formData.email}
+                    onChange={(e) => handleChange(e)}
+                    disabled={loading}
+                    className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
                   )}
-                </Button>
+                </div>
 
-                <p className="text-center text-sm text-muted-foreground">
-                  Already have an account?{' '}
-                  <Link href="/login" className="font-semibold text-primary hover:underline">
-                    Sign in
-                  </Link>
-                </p>
-              </form>
+                <div>
+                  <Label htmlFor="password" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    Password
+                  </Label>
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="••••••••"
+                    autoComplete="new-password"
+                    value={formData.password}
+                    onChange={(e) => handleChange(e)}
+                    disabled={loading}
+                    className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                  {errors.password && (
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="confirmPassword" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+                    Confirm password
+                  </Label>
+                  <Input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="••••••••"
+                    autoComplete="new-password"
+                    value={formData.confirmPassword}
+                    onChange={(e) => handleChange(e)}
+                    disabled={loading}
+                    className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
+                    required
+                  />
+                  {errors.confirmPassword && (
+                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.confirmPassword}</p>
+                  )}
+                </div>
+              </div>
+
+              {errors.form && (
+                <div className="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
+                  <p className="text-sm text-red-800 dark:text-red-400">{errors.form}</p>
+                </div>
+              )}
+
+              <Button
+                type="submit"
+                disabled={loading}
+                className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold shadow-lg shadow-blue-600/25 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    Creating account...
+                  </div>
+                ) : (
+                  'Create account'
+                )}
+              </Button>
+            </form>
+
+            {/* Footer */}
+            <div className="mt-8 text-center">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                Already have an account?{' '}
+                <Link
+                  href="/login"
+                  className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium"
+                >
+                  Sign in
+                </Link>
+              </p>
             </div>
           </div>
-        </section>
+
+          {/* Features Grid - Desktop Only */}
+          <div className="hidden md:grid grid-cols-2 gap-4 mt-8">
+            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+              <BarChart3 className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
+              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Pipeline visibility</h3>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400">Keep every deal stage visible and actionable.</p>
+            </div>
+            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
+              <ShieldCheck className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mb-2" />
+              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Audit-ready security</h3>
+              <p className="text-xs text-zinc-600 dark:text-zinc-400">Secure defaults and role-based access.</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </main>
+    </div>
   )
 }
 
