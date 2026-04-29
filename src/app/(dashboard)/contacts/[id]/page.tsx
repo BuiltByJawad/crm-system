@@ -17,6 +17,9 @@ import {
   Video,
   Plus
 } from 'lucide-react';
+
+export const runtime = 'edge';
+
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { contactsApi, Contact } from '@/lib/api/contacts';

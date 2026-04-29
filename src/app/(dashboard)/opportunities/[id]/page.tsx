@@ -12,6 +12,9 @@ import {
   ChevronRight,
   Briefcase
 } from 'lucide-react';
+
+export const runtime = 'edge';
+
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { opportunitiesApi, Opportunity } from '@/lib/api/opportunities';
@@ -21,8 +24,8 @@ import { OpportunityModal } from '../components/opportunity-modal';
 import { DeleteConfirmModal } from '@/components/shared/delete-confirm-modal';
 
 const stageHistory = [
-  { id: 1, from: 'PROSPECT', to: 'QUALIFIED', date: '2024-04-25T10:30:00Z', user: 'John Doe' },
-  { id: 2, from: 'QUALIFIED', to: 'PROPOSAL', date: '2024-04-27T15:45:00Z', user: 'John Doe' },
+  { id: 1, from: 'Prospect', to: 'Qualified', date: '2024-04-25T14:20:00Z', user: 'John Doe' },
+  { id: 2, from: 'Qualified', to: 'Proposal', date: '2024-04-27T10:30:00Z', user: 'John Doe' },
 ];
 
 export default function OpportunityDetailsPage() {
