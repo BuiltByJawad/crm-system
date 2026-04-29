@@ -61,6 +61,26 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="w-full py-10 md:py-14 bg-background">
+          <div className="container px-4 md:px-6 mx-auto">
+            <p className="text-center text-xs md:text-sm text-muted-foreground">
+              Trusted by teams at
+            </p>
+            <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+              {['Apex Labs', 'Northwind', 'BluePeak', 'Orion', 'Summit', 'Atlas'].map((name) => (
+                <div
+                  key={name}
+                  className="h-11 md:h-12 rounded-2xl border border-zinc-100 dark:border-zinc-900 bg-zinc-50/60 dark:bg-zinc-900/30 flex items-center justify-center"
+                >
+                  <span className="text-sm font-semibold text-zinc-700 dark:text-zinc-200">
+                    {name}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="w-full py-24 md:py-32 bg-background border-y border-zinc-100 dark:border-zinc-900">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="text-center mb-16 space-y-4">
@@ -88,6 +108,81 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold">Bank Security</h3>
                 <p className="text-muted-foreground leading-relaxed">Enterprise-grade encryption and access controls to keep your customer data safe.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-24 md:py-32 bg-zinc-50 dark:bg-zinc-950">
+          <div className="container px-4 md:px-6 mx-auto">
+            <div className="text-center mb-14 space-y-4">
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">Loved by teams that sell</h2>
+              <p className="text-muted-foreground text-lg max-w-[700px] mx-auto">
+                Clean workflows, clear visibility, and a UI your team will actually enjoy using.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  quote:
+                    'We went from scattered spreadsheets to a single pipeline view. Adoption was immediate because the UI is simple.',
+                  name: 'Sales Ops Lead',
+                  company: 'Northwind',
+                },
+                {
+                  quote:
+                    'Fast, responsive, and easy to onboard. Our reps spend more time selling and less time updating fields.',
+                  name: 'Head of Sales',
+                  company: 'Apex Labs',
+                },
+                {
+                  quote:
+                    'The dashboard gives us the metrics we need without feeling heavy. It just works.',
+                  name: 'Revenue Manager',
+                  company: 'Summit',
+                },
+              ].map((t) => (
+                <figure
+                  key={`${t.company}-${t.name}`}
+                  className="rounded-[2rem] border border-zinc-200/70 dark:border-zinc-800/70 bg-background/60 dark:bg-zinc-900/40 p-7 md:p-8"
+                >
+                  <blockquote className="text-base leading-relaxed text-foreground">
+                    “{t.quote}”
+                  </blockquote>
+                  <figcaption className="mt-6 flex items-center justify-between gap-4">
+                    <div>
+                      <p className="font-semibold">{t.name}</p>
+                      <p className="text-sm text-muted-foreground">{t.company}</p>
+                    </div>
+                    <div className="h-10 w-10 rounded-2xl bg-primary/10 border border-primary/15" />
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="w-full py-24 md:py-32 bg-background">
+          <div className="container px-4 md:px-6 mx-auto">
+            <div className="rounded-[2.5rem] border border-zinc-200/70 dark:border-zinc-800/70 bg-gradient-to-br from-primary/10 via-background to-background p-8 md:p-12">
+              <div className="max-w-2xl">
+                <h2 className="text-3xl md:text-5xl font-black tracking-tight">Ready to run your sales on Nexus?</h2>
+                <p className="mt-4 text-muted-foreground text-lg leading-relaxed">
+                  Start free, import contacts later, and keep your pipeline moving with a CRM designed for speed.
+                </p>
+                <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                  <Link href="/register" className="w-full sm:w-auto">
+                    <Button size="lg" className="w-full sm:w-auto h-14 px-10 text-lg rounded-full shadow-2xl shadow-primary/30">
+                      Create account
+                    </Button>
+                  </Link>
+                  <Link href="/login" className="w-full sm:w-auto">
+                    <Button variant="outline" size="lg" className="w-full sm:w-auto h-14 px-10 text-lg rounded-full">
+                      Sign in
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
