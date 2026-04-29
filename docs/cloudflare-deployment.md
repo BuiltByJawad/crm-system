@@ -1,51 +1,43 @@
 # Cloudflare Free Tier Deployment Guide
 
-To deploy this entire project for free on Cloudflare, we will use **Cloudflare Pages** for the frontend and **Cloudflare Workers** (with D1 and KV) for the backend.
+To deploy this entire project for free on Cloudflare, we will use **Cloudflare Pages** for the frontend.
 
 ## 1. Prerequisites
 - A [Cloudflare Account](https://dash.cloudflare.com/sign-up)
-- Your code pushed to a **GitHub** or **GitLab** repository.
+- Your code pushed to a **GitHub** repository.
 
-## 2. Frontend: Cloudflare Pages (Free)
-Cloudflare Pages natively supports Next.js via the `@cloudflare/next-on-pages` adapter.
+## 2. Setup Cloudflare Pages (Recommended)
+Cloudflare Pages is the easiest way to deploy Next.js for free.
 
 1. Go to **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-2. Select your repository.
-3. Use these build settings:
+2. Select your `crm-system` repository.
+3. **Crucial Build Settings**:
    - **Framework preset**: `Next.js`
    - **Build command**: `npx @cloudflare/next-on-pages`
    - **Build output directory**: `.vercel/output/static`
-4. In the Cloudflare Dashboard, go to your Project > **Settings** > **Functions** > **Compatibility flags** and add `nodejs_compat`.
+4. **Environment Variables**:
+   - In the Cloudflare Dashboard, go to your Project > **Settings** > **Environment variables**.
+   - Add `NODE_VERSION` with value `20`.
+5. **Compatibility Flags**:
+   - Go to **Settings** > **Functions**.
+   - Under **Compatibility flags**, add `nodejs_compat` to both **Production** and **Preview**.
 
-## 3. Backend: Cloudflare Workers + D1 (Free)
-Since your current backend uses Express and PostgreSQL, you'll need to adapt it to Cloudflare's serverless environment.
+## 3. Why the build failed (and how to fix)
+If you see an error about `opennextjs-cloudflare deploy` or `WORKER_SELF_REFERENCE`:
+Cloudflare sometimes tries to automatically migrate Next.js projects to its new "OpenNext" worker format. **For a free deployment, we want to stick to the standard Pages format.**
 
-### Database: Cloudflare D1
-Cloudflare D1 is a serverless SQL database (SQLite based) that is completely free up to 5M rows read/day.
-1. Create a D1 database: `npx wrangler d1 create crm-db`
-2. Update your `schema.prisma` to use the `sqlite` provider for the edge.
+- **DO NOT** run `npx wrangler deploy` manually if prompted during build.
+- **DO NOT** commit the `wrangler.jsonc` or `open-next.config.ts` files if they were generated locally, as they can conflict with the Pages build.
 
-### Cache: Cloudflare Workers KV
-Instead of Redis, use **Workers KV** for session/token blacklisting. It is free up to 100k reads/day.
+## 4. Database (Free)
+Since this is a free deployment, the app currently uses **Mock Data** in production mode when no database is connected. 
 
-### API: Cloudflare Workers
-Instead of a long-running Express server, you can deploy your API logic as a Worker.
-1. Use `hono` or similar lightweight frameworks that run on Workers.
-2. Deploy using `wrangler deploy`.
-
-## 4. Environment Variables
-In the Cloudflare Dashboard for your Pages project:
-- `NEXT_PUBLIC_API_URL`: Your Workers URL.
-- `JWT_SECRET`: A long random string.
-
-## 5. Deployment Architecture
-- **Frontend**: Next.js App (Pages)
-- **API**: Cloudflare Workers
-- **DB**: Cloudflare D1 (SQL)
-- **Cache**: Cloudflare KV
+To use a real database for free:
+1. Create a [Supabase](https://supabase.com) or [Neon](https://neon.tech) project (both have great free tiers).
+2. Get your connection string.
+3. Add `DATABASE_URL` to your Cloudflare Pages **Environment Variables**.
+4. Redeploy.
 
 ## Cost Summary: $0.00
-- **Cloudflare Pages**: Free (Unlimited requests/bandwidth)
-- **Cloudflare Workers**: Free (100k requests/day)
-- **Cloudflare D1**: Free (5M rows read/day)
-- **Cloudflare KV**: Free (100k reads/day)
+- **Cloudflare Pages**: Free (Unlimited bandwidth)
+- **Database (Supabase/Neon)**: Free (Up to 500MB)
