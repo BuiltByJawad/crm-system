@@ -1,3 +1,4 @@
+/// <reference types="@cloudflare/workers-types" />
 import { Hono } from 'hono'
 import { eq, and, or, like, sql, desc } from 'drizzle-orm'
 import { opportunities, opportunityHistory } from '../schema'

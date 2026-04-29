@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navigation */}
-      <header className="px-4 md:px-6 lg:px-12 h-16 md:h-20 flex items-center border-b bg-white/50 backdrop-blur-md sticky top-0 z-50">
+      <header className="px-4 md:px-6 lg:px-12 h-16 md:h-20 flex items-center border-b bg-background/80 backdrop-blur-md sticky top-0 z-50">
         <Link className="flex items-center justify-center gap-2 group shrink-0" href="/">
           <div className="h-8 w-8 md:h-10 md:w-10 rounded-lg md:rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20 transition-transform group-hover:scale-105">
             <Briefcase className="h-5 w-5 md:h-6 md:w-6 text-primary-foreground" />
@@ -25,8 +25,8 @@ export default function HomePage() {
 
       <main className="flex-1 flex flex-col">
         {/* Hero Section */}
-        <section className="w-full pt-0 bg-gradient-to-b from-white to-background relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] -z-10" />
+        <section className="w-full pt-0 bg-gradient-to-b from-background to-background relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-800 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05))] -z-10" />
           <div className="container px-4 md:px-6 mx-auto pt-6 md:pt-10 pb-10 md:pb-16 lg:pb-20">
             <div className="flex flex-col items-center space-y-3 md:space-y-4 text-center animate-in fade-in slide-in-from-bottom-8 duration-1000">
               <Link 
@@ -50,7 +50,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="/login" className="w-full sm:w-auto">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-xl md:rounded-2xl bg-white/50 backdrop-blur-sm">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto h-12 md:h-14 px-8 md:px-10 text-base md:text-lg rounded-xl md:rounded-2xl bg-background/50 backdrop-blur-sm">
                     Live Demo
                   </Button>
                 </Link>
@@ -60,19 +60,19 @@ export default function HomePage() {
         </section>
 
         {/* Features Section */}
-        <section className="w-full py-16 md:py-24 bg-white">
+        <section className="w-full py-16 md:py-24 bg-background">
           <div className="container px-4 md:px-6 mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               <div className="flex flex-col items-center space-y-4 text-center p-6 md:p-8 rounded-3xl border border-transparent hover:border-primary/10 hover:bg-primary/5 transition-all duration-300">
-                <div className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-blue-100 flex items-center justify-center mb-2">
-                  <Zap className="h-7 w-7 md:h-8 md:w-8 text-blue-600" />
+                <div className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-blue-100 dark:bg-blue-500/15 flex items-center justify-center mb-2">
+                  <Zap className="h-7 w-7 md:h-8 md:w-8 text-blue-600 dark:text-blue-400" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold">Lightning Fast</h3>
                 <p className="text-sm md:text-base text-muted-foreground text-balance">Global edge network ensures your data is accessible instantly, anywhere in the world.</p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center p-6 md:p-8 rounded-3xl border border-transparent hover:border-primary/10 hover:bg-primary/5 transition-all duration-300">
-                <div className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-purple-100 flex items-center justify-center mb-2">
-                  <BarChart3 className="h-7 w-7 md:h-8 md:w-8 text-purple-600" />
+                <div className="h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-purple-100 dark:bg-purple-500/15 flex items-center justify-center mb-2">
+                  <BarChart3 className="h-7 w-7 md:h-8 md:w-8 text-purple-600 dark:text-purple-400" />
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold">Deep Analytics</h3>
                 <p className="text-sm md:text-base text-muted-foreground text-balance">Advanced visualization tools to track your pipeline performance and revenue growth.</p>

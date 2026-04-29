@@ -1,3 +1,4 @@
+/// <reference types="@cloudflare/workers-types" />
 import { Context, Next } from 'hono'
 import { eq } from 'drizzle-orm'
 import { users } from './schema'

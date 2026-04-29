@@ -6,7 +6,7 @@ compatibility_flags = ["nodejs_compat"]
 [[d1_databases]]
 binding = "DB"
 database_name = "crm-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "09388b35-d73b-4f79-af28-d0ad8992a048"
 
 [vars]
 JWT_SECRET = "change-me-in-production-min-8-chars"
