@@ -1,6 +1,9 @@
-import { Bell } from 'lucide-react';
+'use client'
+
 import { ThemeToggle } from '@/components/shared/theme-toggle';
 import { CommandMenu } from '@/components/shared/command-menu';
+import { NotificationsMenu } from '@/components/shared/notifications-menu';
+import { UserMenu } from '@/components/shared/user-menu';
 
 export function Header() {
   return (
@@ -9,22 +12,12 @@ export function Header() {
 
       <div className="flex items-center gap-2 md:gap-4">
         <ThemeToggle />
-        <button className="relative rounded-full p-2 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors hidden sm:block">
-          <Bell className="h-5 w-5" />
-          <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-primary border-2 border-background" />
-        </button>
+
+        <NotificationsMenu />
         
         <div className="h-8 w-[1px] bg-border mx-1 md:mx-2 hidden sm:block" />
 
-        <button className="flex items-center gap-2 rounded-full pl-1 pr-1 md:pr-3 py-1 hover:bg-secondary transition-colors group">
-          <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs border border-primary/20 shrink-0">
-            JD
-          </div>
-          <div className="text-left hidden sm:block">
-            <p className="text-sm font-semibold leading-none">John Doe</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1">Admin</p>
-          </div>
-        </button>
+        <UserMenu initials="JD" name="John Doe" role="Admin" />
       </div>
     </header>
   );

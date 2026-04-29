@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Link from 'next/link'
-import { Briefcase, ShieldCheck, Zap } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
@@ -85,7 +85,6 @@ export default function LoginPage() {
                   <Input
                     id="email"
                     type="email"
-                    placeholder="name@company.com"
                     autoComplete="email"
                     inputMode="email"
                     value={email}
@@ -94,9 +93,6 @@ export default function LoginPage() {
                     className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
-                  )}
                 </div>
 
                 <div>
@@ -122,15 +118,12 @@ export default function LoginPage() {
                     className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
-                  {errors.password && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
-                  )}
                 </div>
               </div>
 
               {errors.form && (
                 <div className="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
-                  <p className="text-sm text-red-800 dark:text-red-400">{errors.form}</p>
+                  <p className="text-sm text-red-800 dark:text-red-400">Please check your email and password and try again.</p>
                 </div>
               )}
 
@@ -164,19 +157,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Features Grid - Desktop Only */}
-          <div className="hidden md:grid grid-cols-2 gap-4 mt-8">
-            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <Zap className="h-6 w-6 text-blue-600 dark:text-blue-400 mb-2" />
-              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Fast workflows</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">Create contacts and opportunities in seconds.</p>
-            </div>
-            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <ShieldCheck className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mb-2" />
-              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Secure by design</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">Role-based access and token-based auth.</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>

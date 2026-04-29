@@ -30,12 +30,6 @@ export default function Error({
           </p>
         </div>
 
-        {process.env.NODE_ENV === 'development' && (
-          <div className="p-4 bg-muted rounded-xl text-left text-xs font-mono overflow-auto max-h-40">
-            {error.message}
-          </div>
-        )}
-
         <div className="flex flex-col sm:flex-row gap-3 pt-4">
           <Button 
             variant="default" 

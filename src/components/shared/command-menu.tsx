@@ -76,7 +76,7 @@ export function CommandMenu() {
           <Dialog.Content className="fixed inset-0 z-50 flex items-start justify-center pt-[10vh] p-4">
             <Dialog.Title className="sr-only">Global Command Menu</Dialog.Title>
 
-            <div className="w-full max-w-[640px] overflow-hidden rounded-2xl border bg-card shadow-2xl animate-in zoom-in-95 duration-300">
+            <Command className="w-full max-w-[640px] overflow-hidden rounded-2xl border bg-card shadow-2xl animate-in zoom-in-95 duration-300">
               <div className="flex items-center border-b px-3">
                 <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
                 <Command.Input
@@ -164,7 +164,7 @@ export function CommandMenu() {
                   </Command.Item>
                 </Command.Group>
               </Command.List>
-            </div>
+            </Command>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

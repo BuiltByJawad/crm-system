@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import Link from 'next/link'
-import { Briefcase, ShieldCheck, BarChart3 } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
@@ -106,7 +106,6 @@ export default function RegisterPage() {
                     <Input
                       id="firstName"
                       name="firstName"
-                      placeholder="John"
                       autoComplete="given-name"
                       value={formData.firstName}
                       onChange={handleChange}
@@ -114,9 +113,6 @@ export default function RegisterPage() {
                       className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                       required
                     />
-                    {errors.firstName && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.firstName}</p>
-                    )}
                   </div>
                   <div>
                     <Label htmlFor="lastName" className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
@@ -125,7 +121,6 @@ export default function RegisterPage() {
                     <Input
                       id="lastName"
                       name="lastName"
-                      placeholder="Doe"
                       autoComplete="family-name"
                       value={formData.lastName}
                       onChange={handleChange}
@@ -133,9 +128,6 @@ export default function RegisterPage() {
                       className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                       required
                     />
-                    {errors.lastName && (
-                      <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.lastName}</p>
-                    )}
                   </div>
                 </div>
 
@@ -147,7 +139,6 @@ export default function RegisterPage() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="name@company.com"
                     autoComplete="email"
                     inputMode="email"
                     value={formData.email}
@@ -156,9 +147,6 @@ export default function RegisterPage() {
                     className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
-                  {errors.email && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.email}</p>
-                  )}
                 </div>
 
                 <div>
@@ -177,9 +165,6 @@ export default function RegisterPage() {
                     className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
-                  {errors.password && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.password}</p>
-                  )}
                 </div>
 
                 <div>
@@ -198,15 +183,12 @@ export default function RegisterPage() {
                     className="mt-2 h-11 bg-zinc-50 dark:bg-zinc-800 border-zinc-300 dark:border-zinc-700 text-zinc-900 dark:text-white placeholder:text-zinc-500 dark:placeholder:text-zinc-400 focus:border-blue-500 focus:ring-blue-500"
                     required
                   />
-                  {errors.confirmPassword && (
-                    <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.confirmPassword}</p>
-                  )}
                 </div>
               </div>
 
               {errors.form && (
                 <div className="p-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800">
-                  <p className="text-sm text-red-800 dark:text-red-400">{errors.form}</p>
+                  <p className="text-sm text-red-800 dark:text-red-400">Please check your details and try again.</p>
                 </div>
               )}
 
@@ -240,19 +222,6 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Features Grid - Desktop Only */}
-          <div className="hidden md:grid grid-cols-2 gap-4 mt-8">
-            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <BarChart3 className="h-6 w-6 text-purple-600 dark:text-purple-400 mb-2" />
-              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Pipeline visibility</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">Keep every deal stage visible and actionable.</p>
-            </div>
-            <div className="bg-white dark:bg-zinc-900 rounded-xl p-4 border border-zinc-200 dark:border-zinc-800 shadow-sm">
-              <ShieldCheck className="h-6 w-6 text-emerald-600 dark:text-emerald-400 mb-2" />
-              <h3 className="font-semibold text-zinc-900 dark:text-white mb-1">Audit-ready security</h3>
-              <p className="text-xs text-zinc-600 dark:text-zinc-400">Secure defaults and role-based access.</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
