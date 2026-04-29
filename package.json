@@ -21,7 +21,12 @@
     "db:migrate": "prisma migrate dev",
     "db:seed": "prisma db seed",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "dev:worker": "wrangler dev",
+    "deploy:worker": "wrangler deploy",
+    "db:create": "wrangler d1 create crm-db",
+    "db:migrate:local": "wrangler d1 execute crm-db --local --file=migrations/0001_create_tables.sql",
+    "db:migrate:remote": "wrangler d1 execute crm-db --remote --file=migrations/0001_create_tables.sql"
   },
   "keywords": [],
   "author": "",
@@ -47,9 +52,11 @@
     "cmdk": "^1.1.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
+    "drizzle-orm": "^0.44.7",
     "express": "^5.2.1",
     "express-rate-limit": "^8.4.1",
     "helmet": "^8.1.0",
+    "hono": "^4.12.15",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^1.12.0",
     "morgan": "^1.10.1",
@@ -71,6 +78,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260426.1",
     "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
@@ -81,7 +89,8 @@
     "@types/react-dom": "^19.2.3",
     "@types/supertest": "^6.0.3",
     "supertest": "^7.1.4",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "wrangler": "^4.86.0"
   },
   "prisma": {
     "seed": "node --loader ts-node/esm prisma/seed.ts"

@@ -2,8 +2,8 @@ import { z } from 'zod'
 
 const configSchema = z.object({
   NEXT_PUBLIC_API_URL: z.string().url().optional(),
-  DATABASE_URL: z.string().url(),
-  JWT_SECRET: z.string().min(32),
+  DATABASE_URL: z.string().url().optional(),
+  JWT_SECRET: z.string().min(8).optional(),
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
 })
 
