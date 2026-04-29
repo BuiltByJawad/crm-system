@@ -48,8 +48,8 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background p-4 md:p-8">
-      <div className="w-full max-w-[400px] space-y-6 md:space-y-8 glass p-6 md:p-10 rounded-2xl animate-in fade-in zoom-in duration-500">
+    <main className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950 p-4 md:p-8">
+      <div className="w-full max-w-[400px] space-y-6 md:space-y-8 glass p-6 md:p-10 rounded-3xl animate-in fade-in zoom-in duration-500">
         <div className="space-y-2 text-center">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Sign in</h1>
           <p className="text-sm md:text-base text-muted-foreground text-balance">Enter your credentials to access your account</p>

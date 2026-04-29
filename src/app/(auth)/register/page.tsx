@@ -68,8 +68,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-background p-4 md:p-8">
-      <div className="w-full max-w-[450px] space-y-8 glass p-6 md:p-8 rounded-2xl animate-in fade-in zoom-in duration-500">
+    <main className="min-h-screen flex items-center justify-center bg-zinc-50 dark:bg-zinc-950 p-4 md:p-8">
+      <div className="w-full max-w-[450px] space-y-8 glass p-6 md:p-8 rounded-3xl animate-in fade-in zoom-in duration-500">
         <div className="space-y-2 text-center">
           <h1 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">Create account</h1>
           <p className="text-sm md:text-base text-muted-foreground">Join our CRM platform today</p>
